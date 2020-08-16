@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.appspec.name }}
+  namespace: {{ .Values.global.namespace }}
+  labels:
+    app: {{ .Values.appspec.name }}
+spec:
+  replicas: {{ .Values.appspec.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.appspec.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.appspec.name }}
+    spec:
+      securityContext:
+        fsGroup: 472
+        runAsGroup: 472
+        runAsUser: 472
+      containers:
+        - name: grafana
+          image: {{ .Values.appspec.image }}
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: config
+              mountPath: "/etc/grafana/grafana.ini"
+              subPath: grafana.ini
+            - name: storage
+              mountPath: "/var/lib/grafana"
+            - name: datasource
+              mountPath: "/etc/grafana/provisioning/datasources"
+          ports:
+            - containerPort: 3000
+          livenessProbe:
+            failureThreshold: 10
+            httpGet:
+              path: /api/health
+              port: 3000
+            initialDelaySeconds: 60
+            timeoutSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: 3000
+          env:
+            - name: GF_SECURITY_ADMIN_USER
+              valueFrom:
+                secretKeyRef:
+                  name: grafana
+                  key: admin-user
+            - name: GF_SECURITY_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: grafana
+                  key: admin-password
+      volumes:
+        - name: config
+          configMap:
+            name: grafana-conf
+        - name: datasource
+          configMap:
+            name: grafana-datasource
+        - name: storage
+          persistentVolumeClaim:
+            claimName: {{ .Values.appspec.name }}
+

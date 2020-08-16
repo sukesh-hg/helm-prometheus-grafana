@@ -1,0 +1,24 @@
+#This is used to manage backend configurations
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: {{ .Values.appspec.name }}
+  namespace: {{ .Values.global.namespace }}
+spec:
+  iap:
+    #This configuration is used to setup Identity aware proxy on GCP for Grafana Ingress service
+    #Follow here for more details https://cloud.google.com/iap/docs/enabling-kubernetes-howto
+    enabled: true
+    oauthclientCredentials:
+      secretName: iap-grafana
+  cdn:
+    #This is used to setup Google CDN with the Loadbalancer
+    #Follow here for more details on available configuration options https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-features#1.16-gke.3+
+    enabled: false
+  connectionDraining:
+    #Connection draining timeout is the time, in seconds, to wait for connections to drain
+    drainingTimeoutSec: 60
+  securityPolicy:
+    #Cloud Armor policies on the Loadbalancer. Armor is used to set WAF rules.
+    #name: "example-security-policy"
+  timeoutSec: 40

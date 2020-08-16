@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-server
+  namespace: {{ .Values.global.namespace }}
+data:
+  #Path to prometheus scrape configuration file, you can also copy-paste the config here directly rather than using .Files method
+  prometheus.yml: |-
+{{ .Files.Get "configs/prometheus.yml" | indent 4}}

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.appspec.name }}
+  namespace: {{ .Values.global.namespace }}
+  annotations:
+    cloud.google.com/neg: '{"ingress": true}'
+    beta.cloud.google.com/backend-config: '{"default": "grafana"}'
+spec:
+  selector: 
+    app: {{ .Values.appspec.name }}
+  type: {{ .Values.service.type }}  
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetport }}
+      name: http
+      protocol: TCP

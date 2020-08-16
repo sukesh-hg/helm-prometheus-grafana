@@ -1,0 +1,8 @@
+appspec:
+  name: grafana
+  replicas: 1
+  image: grafana/grafana:7.0.5
+service:
+  type: NodePort
+  port: 3000
+  targetport: 3000

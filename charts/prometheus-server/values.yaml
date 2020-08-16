@@ -1,0 +1,11 @@
+appspec:
+  #Specifications for prometheus 
+  name: prometheus
+  component: server
+  replicas: 1
+  image: prom/prometheus:v2.19.0
+service:
+  #Service specifications
+  type: ClusterIP
+  port: 80
+  targetport: 9090

@@ -1,0 +1,23 @@
+#This creates a GKE Ingress resource with default healthchecks for the backend service
+#Define your host and path rules here
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: grafana
+  namespace: dev
+  annotations:
+    kubernetes.io/ingress.allow-http: "false"
+    #Add Static ingress IP, if already created. Leave blank for new IP allocation 
+    kubernetes.io/ingress.global-static-ip-name: grafana-ingress-ip
+spec:
+  tls:
+  - secretName: 
+  rules:
+  - host: grafana.domain.com
+    http:
+      paths:
+      - path: /*
+        backend:
+          #Add backend service name and port
+          serviceName: grafana
+          servicePort: 3000
