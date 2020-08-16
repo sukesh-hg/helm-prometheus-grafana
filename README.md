@@ -17,5 +17,5 @@ How to use this repo:\
 You can install the entire setup at one go which would create Prometheus and Grafana with all the datasource and dashboards on your Kubernetes cluster.
 Or you can pick and choose the components needed as per your use case merits.
 
-To go for the complete package, simply clone this repo, cd to this repo and run 'helm install name -f values.yaml . -n namespace'
+To go for the complete package, simply clone this repo, cd to this repo and run 'helm install name -f values.yaml . -n namespace'\
 To setup individual components, cd to the component path in charts and run the same command.
