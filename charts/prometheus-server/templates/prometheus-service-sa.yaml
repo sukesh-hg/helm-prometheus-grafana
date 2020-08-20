@@ -1,3 +1,5 @@
+#This creates a Service account on the kubernetes cluster for prometheus
+{{- if .Values.prometheus.enabled -}}
 apiVersion: v1
 kind: ServiceAccount
 metadata:

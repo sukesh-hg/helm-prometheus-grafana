@@ -1,3 +1,5 @@
+#This is used to manage grafana configurations
+{{- if .Values.grafana.enabled -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:

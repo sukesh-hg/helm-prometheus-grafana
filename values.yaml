@@ -1,2 +1,9 @@
 global:
-  namespace: dev
+  namespace: default
+
+prometheus:
+  enabled: true
+
+grafana:
+  enabled: true
+

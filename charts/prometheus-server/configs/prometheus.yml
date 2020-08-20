@@ -1,3 +1,5 @@
+#This is used to manage prometheus configurations
+#Add global configs here
 global:
   scrape_interval: 60s
   evaluation_interval: 15s
