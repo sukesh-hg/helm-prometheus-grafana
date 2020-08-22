@@ -1,7 +1,8 @@
 #This creates a Service account on the kubernetes cluster for prometheus
-{{- if .Values.prometheus.enabled -}}
+{{- if .Values.global.prometheus.enabled -}}
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: {{ .Values.appspec.name }}
   namespace: {{ .Values.global.namespace }}
+{{- end -}}

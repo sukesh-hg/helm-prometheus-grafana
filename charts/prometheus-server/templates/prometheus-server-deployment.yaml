@@ -1,5 +1,4 @@
-#Manage your prometheus deployment configurations here
-{{- if .Values.prometheus.enabled -}}
+{{- if .Values.global.prometheus.enabled -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -63,3 +62,4 @@ spec:
       - name: storage-volume
         persistentVolumeClaim:
           claimName: {{ .Values.appspec.name }}
+{{- end -}}

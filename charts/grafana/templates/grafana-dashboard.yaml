@@ -1,4 +1,6 @@
-{{- if .Values.grafana.enabled -}}
+#This bootstraps dashboards on grafana installation
+#JSON templates in /dashboards folder are inserted. You can add your custom dashboards to that folder and install/upgrade this helm chart.
+{{- if .Values.global.grafana.enabled -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -19,5 +21,5 @@ data:
           path: /etc/grafana/provisioning/dashboards
           foldersFromFilesStructure: true
 {{ (.Files.Glob "dashboards/*").AsConfig | indent 4 }}
-
+{{- end -}}
          

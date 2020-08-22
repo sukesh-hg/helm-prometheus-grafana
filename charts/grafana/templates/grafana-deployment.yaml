@@ -1,5 +1,4 @@
-#Manage your grafana deployment configurations here
-{{- if .Values.grafana.enabled -}}
+{{- if .Values.global.grafana.enabled -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -67,4 +66,4 @@ spec:
         - name: storage
           persistentVolumeClaim:
             claimName: {{ .Values.appspec.name }}
-
+{{- end -}}

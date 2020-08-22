@@ -1,5 +1,5 @@
 #This is used to manage your datasources that grafana connects to
-{{- if .Values.grafana.enabled -}}
+{{- if .Values.global.grafana.enabled -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -16,4 +16,4 @@ data:
         #If prometheus server is setup on same cluster, use Kubernetes service discovery
         #If prometheus server is on another cluster, user GCP Internal Loadbalancer to avoid exposing service to public
         url: http://prometheus-server:80
-  
+{{- end -}}  

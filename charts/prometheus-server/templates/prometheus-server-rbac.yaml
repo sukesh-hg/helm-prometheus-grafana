@@ -1,5 +1,5 @@
 #This creates a Clusterrole with requisite bindings for prometheus service account
-{{- if .Values.prometheus.enabled -}}
+{{- if .Values.global.prometheus.enabled -}}
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRole
 metadata:
@@ -36,3 +36,4 @@ subjects:
 - kind: ServiceAccount
   name: {{ .Values.appspec.name }}
   namespace: {{ .Values.global.namespace }}
+{{- end -}}

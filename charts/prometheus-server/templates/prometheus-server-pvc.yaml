@@ -1,5 +1,5 @@
 #This creates a PVC for prometheus
-{{- if .Values.prometheus.enabled -}}
+{{- if .Values.global.prometheus.enabled -}}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -13,3 +13,4 @@ spec:
   resources:
     requests:
       storage: "8Gi"
+{{- end -}}
