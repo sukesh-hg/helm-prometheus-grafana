@@ -1,0 +1,22 @@
+{{- if .Values.global.grafana.enabled -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-dashboard-conf
+  namespace: {{ .Values.global.namespace }}
+  labels:
+    app: grafana
+data:
+  dashboard.yaml: |
+    apiVersion: 1
+    providers:
+    - name: dashboards
+      type: file
+      updateIntervalSeconds: 60
+      allowUiUpdates: true
+      editable: true
+      disableDeletion: false
+      options:
+        path: /etc/dashboards
+        foldersFromFilesStructure: true
+{{- end -}}

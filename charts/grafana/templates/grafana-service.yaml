@@ -1,4 +1,3 @@
-#Manage your grafana service configurations here
 {{- if .Values.global.grafana.enabled -}}
 apiVersion: v1
 kind: Service

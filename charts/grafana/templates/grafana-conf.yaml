@@ -1,4 +1,3 @@
-#This is used to manage grafana configurations
 {{- if .Values.global.grafana.enabled -}}
 apiVersion: v1
 kind: ConfigMap

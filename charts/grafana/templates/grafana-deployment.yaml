@@ -32,6 +32,10 @@ spec:
               mountPath: "/var/lib/grafana"
             - name: datasource
               mountPath: "/etc/grafana/provisioning/datasources"
+            - name: dashboard-conf
+              mountPath: "/etc/grafana/provisioning/dashboards"
+            - name: dashboard
+              mountPath: "/etc/dashboards"
           ports:
             - containerPort: 3000
           livenessProbe:
@@ -63,6 +67,12 @@ spec:
         - name: datasource
           configMap:
             name: grafana-datasource
+        - name: dashboard-conf
+          configMap:
+            name: grafana-dashboard-conf
+        - name: dashboard
+          configMap:
+            name: grafana-dashboard
         - name: storage
           persistentVolumeClaim:
             claimName: {{ .Values.appspec.name }}

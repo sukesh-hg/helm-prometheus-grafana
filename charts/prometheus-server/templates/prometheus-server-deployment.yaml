@@ -19,6 +19,7 @@ spec:
         app: {{ .Values.appspec.name }}
         component: {{ .Values.appspec.component}}
     spec:
+      serviceAccountName: {{ .Values.appspec.name }}
       containers:
       - args:
         - --volume-dir=/etc/config

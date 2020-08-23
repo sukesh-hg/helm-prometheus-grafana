@@ -1,7 +1,7 @@
 global:
   namespace: default
   prometheus:
-    enabled: false
+    enabled: true
   grafana:
     enabled: true
 

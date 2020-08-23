@@ -1209,7 +1209,7 @@
         "query": "prometheus",
         "queryValue": "",
         "refresh": 1,
-        "regex": "/^star/",
+        "regex": "",
         "skipUrlSync": false,
         "type": "datasource"
       },
