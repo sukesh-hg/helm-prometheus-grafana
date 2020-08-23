@@ -9,7 +9,7 @@ What this repository contains:
 - Grafana dashboard templates for monitoring Server metrics, JVM metrics and Postgresql database
 - Sample Java application integrated with the jmx exporter java agent
 
-![alt text](https://i.imgur.com/3V5ktrt.png)
+![alt text](https://i.imgur.com/bDk6Itm.png)
 
 Prerequisites:
 - Kubernetes cluster with access to create Objects, Service accounts and RBAC roles
