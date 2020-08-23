@@ -9,7 +9,7 @@ What this repository contains:
 - Grafana dashboard templates for monitoring Server metrics, JVM metrics and Postgresql database
 - Sample Java application integrated with the jmx exporter java agent
 
-![alt text](https://i.imgur.com/bDk6Itm.png)
+![alt text](https://i.imgur.com/bJjc9MY.png)
 
 Prerequisites:
 - Kubernetes cluster with access to create Objects, Service accounts and RBAC roles
@@ -29,4 +29,4 @@ To delete the installation, run 'helm delete name'
 
 Post Installation:
 
-Grafana is exposed as a LoadBalancer. Use 'kubectl get svc' to get the IP address. This setup is created with a default admin/admin username password.You have the option to reset the password on first time login.
+Grafana is exposed as a LoadBalancer. Use 'kubectl get svc' to get the IP address. This setup is created with a default admin/admin username password. You have the option to reset the password on first time login.
