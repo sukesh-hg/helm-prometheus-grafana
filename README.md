@@ -7,6 +7,7 @@ What this repository contains:
 - Helm chart for Postresql prometheus exporter, with configurable datasources
 - Extra resource templates for managing Ingress and Backend Config for Google Cloud Platform
 - Grafana dashboard templates for monitoring Server metrics, JVM metrics and Postgresql database
+- Sample Java application integrated with the jmx exporter java agent
 
 Prerequisites:
 - Kubernetes cluster with access to create Objects, Service accounts and RBAC roles
@@ -24,3 +25,8 @@ For selective installations, set the enable value for the component in values.ya
 To upgrade the installation, run 'helm upgrade --install name -f values.yaml .'
 
 To delete the installation, run 'helm delete name'
+
+Post Installation:
+
+Grafana is exposed as a LoadBalancer. Use 'kubectl get svc' to get the IP address. This setup is created with a default admin/admin username password.You have the option to reset the password on first time login.
+
