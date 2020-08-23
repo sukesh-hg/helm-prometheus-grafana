@@ -1,3 +1,5 @@
+#Add jmx exporter configurations and rules here
+#Refer https://github.com/prometheus/jmx_exporter for more details
 rules:
 - pattern: ".*"
 ~                

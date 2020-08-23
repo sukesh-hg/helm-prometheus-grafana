@@ -1,9 +1,19 @@
 global:
+#Define the Kubernetes namespace for component installation
   namespace: default
+
+#Installs prometheus server setup on Kubernetes
+#Change value to false if you do not need prometheus
   prometheus:
     enabled: true
+
+#Installs grafana setup on Kubernetes
+#Change value to false if you do not require grafana
   grafana:
     enabled: true
+
+#Installs sample java application on Kubernetes
+#Change value to false if you do not require jvm
   jvm:
     enabled: true
 

@@ -1,4 +1,3 @@
-#This is used to manage backend configurations
 apiVersion: cloud.google.com/v1
 kind: BackendConfig
 metadata:

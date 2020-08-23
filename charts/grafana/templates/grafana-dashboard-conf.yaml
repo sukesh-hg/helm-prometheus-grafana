@@ -7,16 +7,20 @@ metadata:
   labels:
     app: grafana
 data:
+  #This is used to provision preconfigured dashboards on grafana startup
+  #Add json exports to dashboards folder in the helm chart
   dashboard.yaml: |
     apiVersion: 1
     providers:
     - name: dashboards
       type: file
+      #grafana will check for any updates on the preconfigured dashboards
       updateIntervalSeconds: 60
       allowUiUpdates: true
       editable: true
       disableDeletion: false
       options:
+        #path where the dashboards need to be mounted, grafana will look into this folder
         path: /etc/dashboards
         foldersFromFilesStructure: true
 {{- end -}}

@@ -5,8 +5,8 @@ metadata:
   name: {{ .Values.appspec.name }}
   namespace: {{ .Values.global.namespace }}
   annotations:
-     prometheus.io/scrape: "true"
-     prometheus.io/port: "8080"
+     prometheus.io/scrape: "true"  #Required annotation to configure prometheus scraping on pod
+     prometheus.io/port: "8080"    #Define the port and path where metrics are exposed to be scraped
      prometheus.io/path: "/metrics"
   labels:
      app: {{ .Values.appspec.name }}

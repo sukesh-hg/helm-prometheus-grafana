@@ -1,8 +1,11 @@
 appspec:
+#Define application specs here
   name: grafana
   replicas: 1
   image: grafana/grafana:7.0.5
+
+#Define service specs here
 service:
-  type: NodePort
-  port: 3000
+  type: LoadBalancer
+  port: 80
   targetport: 3000

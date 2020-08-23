@@ -1,5 +1,3 @@
-#This creates a GKE Ingress resource with default healthchecks for the backend service
-#Define your host and path rules here
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
@@ -13,6 +11,7 @@ spec:
   tls:
   - secretName: 
   rules:
+  #Define your host and path rules here
   - host: grafana.domain.com
     http:
       paths:

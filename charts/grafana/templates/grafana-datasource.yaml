@@ -9,6 +9,7 @@ metadata:
 data:
   datasource.yaml: |
     datasources:
+      #Add one or more datasources here. These will be added on grafana startup.
       - name: prometheus
         type: prometheus
         access: proxy

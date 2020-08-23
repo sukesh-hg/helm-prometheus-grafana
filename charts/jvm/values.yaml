@@ -1,7 +1,9 @@
 appspec:
   name: jvm
   image: sukeshhg/jvm:latest 
+
+#Define service specs here
 service:
-  type: LoadBalancer
+  type: ClusterIP
   port: 8080
   targetPort: 8080

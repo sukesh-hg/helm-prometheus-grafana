@@ -5,8 +5,8 @@ metadata:
   name: {{ .Values.appspec.name }}
   namespace: {{ .Values.global.namespace }}
   annotations:
-    prometheus.io/scrape: "true"
-    prometheus.io/port: "8080"
+    prometheus.io/scrape: "true"  #Required annotation to configure service for prometheus scraping
+    prometheus.io/port: "8080"    #Define port and path here. Defaults to /metrics path.
   labels:
     app: {{ .Values.appspec.name }}
 spec:
