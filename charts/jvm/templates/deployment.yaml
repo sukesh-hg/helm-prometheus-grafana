@@ -1,0 +1,29 @@
+{{- if .Values.global.jvm.enabled -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.appspec.name }}
+  namespace: {{ .Values.global.namespace }}
+  annotations:
+     prometheus.io/scrape: "true"
+     prometheus.io/port: "8080"
+     prometheus.io/path: "/metrics"
+  labels:
+     app: {{ .Values.appspec.name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.appspec.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.appspec.name }}
+    spec:
+      containers:
+      - image: {{ .Values.appspec.image }}
+        name: jvm
+        imagePullPolicy: Always
+        ports:
+        - containerPort: {{ .Values.service.port }}
+{{- end -}}

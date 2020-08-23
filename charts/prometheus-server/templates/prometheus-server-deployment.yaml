@@ -7,6 +7,10 @@ metadata:
   labels:
     app: {{ .Values.appspec.name }}
     component: {{ .Values.appspec.component}}
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9090"
+    prometheus.io/path: "/metrics"
 spec:
   replicas: {{ .Values.appspec.replicas }}
   selector:

@@ -1,0 +1,21 @@
+{{- if .Values.global.jvm.enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.appspec.name }}
+  namespace: {{ .Values.global.namespace }}
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8080"
+  labels:
+    app: {{ .Values.appspec.name }}
+spec:
+  selector: 
+    app: {{ .Values.appspec.name }}
+  type: {{ .Values.service.type }}  
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetport }}
+      name: http
+      protocol: TCP
+{{- end -}}

@@ -4,4 +4,6 @@ global:
     enabled: true
   grafana:
     enabled: true
+  jvm:
+    enabled: true
 

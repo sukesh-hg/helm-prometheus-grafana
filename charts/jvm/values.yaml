@@ -1,0 +1,7 @@
+appspec:
+  name: jvm
+  image: sukeshhg/jvm:latest 
+service:
+  type: LoadBalancer
+  port: 8080
+  targetPort: 8080

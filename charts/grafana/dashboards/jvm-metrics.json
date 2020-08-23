@@ -12,11 +12,12 @@
       }
     ]
   },
+  "description": "Dashboard to monitor Java Virtual machine metrics collected through JMX exporter",
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 8,
-  "iteration": 1597934571908,
+  "id": 1,
+  "iteration": 1598184108137,
   "links": [],
   "panels": [
     {
@@ -939,9 +940,9 @@
     "list": [
       {
         "current": {
-          "selected": false,
-          "text": "star-dl-prod",
-          "value": "star-dl-prod"
+          "selected": true,
+          "text": "prometheus",
+          "value": "prometheus"
         },
         "hide": 0,
         "includeAll": false,
@@ -959,9 +960,9 @@
       {
         "allValue": null,
         "current": {
-          "selected": false,
-          "text": "prod",
-          "value": "prod"
+          "selected": true,
+          "text": "default",
+          "value": "default"
         },
         "datasource": "$cluster",
         "definition": "label_values(kubernetes_namespace)",
@@ -970,7 +971,13 @@
         "label": null,
         "multi": false,
         "name": "namespace",
-        "options": [],
+        "options": [
+          {
+            "selected": true,
+            "text": "default",
+            "value": "default"
+          }
+        ],
         "query": "label_values(kubernetes_namespace)",
         "refresh": 0,
         "regex": "",
@@ -985,9 +992,9 @@
       {
         "allValue": null,
         "current": {
-          "selected": false,
-          "text": "etlflow-scheduler",
-          "value": "etlflow-scheduler"
+          "selected": true,
+          "text": "jvm",
+          "value": "jvm"
         },
         "datasource": "$cluster",
         "definition": "label_values(app)",
@@ -996,7 +1003,13 @@
         "label": "app",
         "multi": false,
         "name": "app",
-        "options": [],
+        "options": [
+          {
+            "selected": true,
+            "text": "jvm",
+            "value": "jvm"
+          }
+        ],
         "query": "label_values(app)",
         "refresh": 0,
         "regex": "",
@@ -1011,7 +1024,7 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {
